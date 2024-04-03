@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { AllProductsComponent } from './components/all-products/all-products.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavBarComponent, FilterComponent, AllProductsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
