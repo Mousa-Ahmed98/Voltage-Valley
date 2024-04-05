@@ -1,3 +1,5 @@
+import { ICategory } from "./icategory";
+
 export interface IProduct {
     id: number,
     title: string,
@@ -5,9 +7,8 @@ export interface IProduct {
     price: number,
     discountPercentage: number,
     rating: number,
-    stock: number,
-    brand: string,
-    category: string,
-    thumbnail: string,
-    images: string[]
+    category: ICategory,
+    images: string[],
+    sold: number
+    insteadOf: number,
 }

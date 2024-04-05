@@ -1,22 +1,35 @@
-<ng-container **ngFor="let item of list">
-    <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>
-      
-</ng-container>
+<ng-container>
+    <div class="row ">
+      <div class="col-3 p-2 m-1 d-flex align-items-stretch " *ngFor="let product of products">
+        <mat-card appCardAnimation *ngIf="product.id < 52" class="example-card overflow-hidden rounded">
+          <!-- <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>{{product.title}} + {{product.id}}</mat-card-subtitle>
+          </mat-card-header> -->
+          <ng-container *ngIf="product.images.length > 1">
+            <img class="rounded" mat-card-image [src]="product.images[0]" 
+            alt="Photo of a Shiba Inu" (click)="goToDetails($event)">
+          </ng-container>
+          <ng-container *ngIf="product.images.length < 1">
+            <img class="rounded" mat-card-image src="https://i.imgur.com/cHddUCu.jpeg" alt="Photo of a Shiba Inu">
+          </ng-container>
+          <!-- <p class="p-1 px-2" style=" white-space: nowrap;">{{product.title}}</p> -->
+          <mat-card-content>
+            <h5 class="card-text pt-2 pb-1">
+              ${{product.price*(10)}}
+            </h5>
+            <h6 class="card-text py-2" style="font-size: .85rem;">
+              {{product.title}}
+            </h6>
+          </mat-card-content>
+          <mat-card-actions class="mt-auto" style="">
+            <span class="badge badge-pill py-2 px-3 rounded-5" style="background-color: gold; color:black">{{product.rating}}</span>
+            <span class="py-2 px-2" style="font-size: .8rem">&nbsp;&nbsp;| Sold <span class="py-1">{{product.sold}}</span></span>
+            <button mat-button class="rounded-5 ms-auto " style="background-color: gold;">Buy</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </ng-container>
+  
