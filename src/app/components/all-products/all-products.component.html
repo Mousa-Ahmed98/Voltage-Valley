@@ -9,7 +9,7 @@
           </mat-card-header> -->
           <ng-container *ngIf="product.images.length > 1">
             <img class="rounded" mat-card-image [src]="product.images[0]" 
-            alt="Photo of a Shiba Inu" (click)="goToDetails($event)">
+            alt="Photo of a Shiba Inu" (click)="goToDetails(product)">
           </ng-container>
           <ng-container *ngIf="product.images.length < 1">
             <img class="rounded" mat-card-image src="https://i.imgur.com/cHddUCu.jpeg" alt="Photo of a Shiba Inu">

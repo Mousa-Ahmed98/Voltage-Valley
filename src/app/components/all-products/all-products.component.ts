@@ -32,14 +32,16 @@ export class AllProductsComponent implements OnInit {
       console.log(res);
       this.products = res;
       this.products.forEach(element => {
-        console.log(element.title);
+        //console.log(element.title);
         element.sold = 0,
-        element.rating = 3.4,
-        element.insteadOf = element.price*1.2
+        element.rating = parseFloat((Math.floor(Math.random() * 500) / 100).toFixed(2)),
+        element.insteadOf = element.price + element.price*.2,
+        element.quantity = (Math.floor(Math.random() * 10))
       });
     });
   }
-  goToDetails($event: MouseEvent) {
+  goToDetails(product: IProduct) {
+    this.productService.setCurrentProduct(product);
     this.router.navigate(["/details"]);
     }
 }
