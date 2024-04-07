@@ -24,5 +24,5 @@ export class ProductService {
   }
   getCurrentProduct(){
     return this.currentProduct;
-  }
+  } 
 }

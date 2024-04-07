@@ -37,6 +37,7 @@ export class AllProductsComponent implements OnInit {
         element.rating = parseFloat((Math.floor(Math.random() * 500) / 100).toFixed(2)),
         element.insteadOf = element.price + element.price*.2,
         element.quantity = (Math.floor(Math.random() * 10))
+        element.orderQuantity = 1;
       });
     });
   }

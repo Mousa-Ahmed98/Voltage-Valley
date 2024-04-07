@@ -11,5 +11,6 @@ export interface IProduct {
     images: string[],
     sold: number
     insteadOf: number,
-    quantity: number
+    quantity: number,
+    orderQuantity: number
 }
