@@ -3,7 +3,7 @@ import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../models/iproduct';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-descriptopn',
@@ -20,13 +20,18 @@ export class ProductDescriptopnComponent {
   canAdd: boolean = true;
   cartService: CartService;
   router: Router;
-  constructor(productService: ProductService, cartService: CartService, router: Router){
+  activatedRoute!: ActivatedRoute
+  currentProductId!: Number;
+  constructor(productService: ProductService, cartService: CartService
+    , router: Router, activatedRoute: ActivatedRoute){
     this.currentProduct = productService.getCurrentProduct();
     this.currentImage = this.currentProduct.images[0];
     this.cartService = cartService;
     this.router = router;
     this.canAdd = !cartService.doesContain(this.currentProduct.id);
     console.log(this.currentProduct.rating);
+    this.activatedRoute = activatedRoute;
+    this.currentProductId = Number(activatedRoute.snapshot.paramMap.get('id'));
   }
 
   changeBigImage(image: string) {

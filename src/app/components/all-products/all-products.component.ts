@@ -43,6 +43,6 @@ export class AllProductsComponent implements OnInit {
   }
   goToDetails(product: IProduct) {
     this.productService.setCurrentProduct(product);
-    this.router.navigate(["/details"]);
+    this.router.navigate(["/details", product.id],);
     }
 }

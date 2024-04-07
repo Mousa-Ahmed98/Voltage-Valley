@@ -18,6 +18,9 @@ export class ProductService {
   getAllProducts(): Observable<any>{
     return this.http.get("https://api.escuelajs.co/api/v1/products");
   }
+  getProductById(id: number): Observable<any>{
+    return this.http.get("https://api.escuelajs.co/api/v1/products"+id);
+  }
 
   setCurrentProduct(product: IProduct){
     this.currentProduct = product;
