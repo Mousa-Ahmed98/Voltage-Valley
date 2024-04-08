@@ -4,6 +4,7 @@ import { IProduct } from '../../models/iproduct';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import { Router } from '@angular/router';
+import { FavoritesService } from '../../services/favorites.service';
 
 @Component({
   selector: 'app-product-descriptopn',
@@ -19,11 +20,14 @@ export class ProductDescriptopnComponent {
   currentImage: string;
   canAdd: boolean = true;
   cartService: CartService;
+  favoritesService!: FavoritesService
   router: Router;
-  constructor(productService: ProductService, cartService: CartService, router: Router){
+  constructor(productService: ProductService, cartService: CartService
+    , router: Router, favoritesService: FavoritesService){
     this.currentProduct = productService.getCurrentProduct();
     this.currentImage = this.currentProduct.images[0];
     this.cartService = cartService;
+    this.favoritesService = favoritesService;
     this.router = router;
     this.canAdd = !cartService.doesContain(this.currentProduct.id);
     console.log(this.currentProduct.rating);
@@ -58,5 +62,14 @@ export class ProductDescriptopnComponent {
 
     goToCart(){
       this.router.navigate(['/cart']);
+    }
+
+    toggleFavorites(id: Number){
+      if(this.favoritesService.favorites.includes(id)){
+        this.favoritesService.removeFromFavorites(id)
+      }
+      else{
+        this.favoritesService.addToFavorites(id);
+      }
     }
 }

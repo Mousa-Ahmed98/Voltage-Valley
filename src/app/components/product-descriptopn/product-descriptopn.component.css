@@ -1,9 +1,31 @@
-.icon-hover:hover {
-    border-color: #3b71ca !important;
+.icon-hover-red:hover {
+    border-color: red !important;
     background-color: white !important;
-    color: #3b71ca !important;
+    color: red !important;
   }
   
-  .icon-hover:hover i {
-    color: #3b71ca !important;
+  .icon-hover-red:hover i {
+    /* color: #3b71ca !important; */
+    color: red !important;
+  }
+
+  .icon-hover-red{
+    /* color: #3b71ca !important; */
+    color: black !important;
+  }
+
+
+  .icon-hover-black:hover {
+    border-color: black !important;
+    background-color: white !important;
+    color: black !important;
+  }
+  
+  .icon-hover-black:hover i {
+    color: black !important;
+  }
+
+  .icon-hover-black{
+    /* color: #3b71ca !important; */
+    color: red !important;
   }
